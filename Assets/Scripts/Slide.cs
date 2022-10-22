@@ -90,7 +90,7 @@ public class Slide : MonoBehaviour
         }
         float smooth = Mathf.Lerp(cameraAngle, clamped - angle, m_cameraAngleSmoothSpeed * Time.deltaTime);
         m_camera.transform.eulerAngles = new Vector3(0f, 0f, smooth);
-        Debug.Log("a=" + angle + ", c=" + clamped + ", d=" + (clamped - angle) + ", z=" + cameraAngle + ", dt=" + Time.deltaTime);
+        //Debug.Log("a=" + angle + ", c=" + clamped + ", d=" + (clamped - angle) + ", z=" + cameraAngle + ", dt=" + Time.deltaTime);
 
         // Clamped rotation
         down = Quaternion.Euler(0, 0, clamped) * Vector3.down;
