@@ -54,7 +54,8 @@ public class Gun : MonoBehaviour
     {
         Debug.DrawLine(transform.position, target, Color.white, 1.0f);
 
-        Vector3 recoil = target.normalized * -1.0f * m_recoil;
+        Vector3 recoil = (transform.position - target).normalized * m_recoil;
+        //Debug.DrawRay(transform.position, recoil, Color.yellow, 1.0f);
         m_rb.AddForce(recoil);
     }
 
