@@ -16,6 +16,12 @@ public class Slide : MonoBehaviour
     [SerializeField]
     float m_maxAngle = 45f;
 
+    [SerializeField]
+    GameObject m_camera = null;
+
+    [SerializeField]
+    float m_cameraAngleSmoothSpeed = 10f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,10 +81,19 @@ public class Slide : MonoBehaviour
         {
             angle -= 360;
         }
-        angle = Mathf.Clamp(angle, -m_maxAngle, m_maxAngle);
-        
+        float clamped = Mathf.Clamp(angle, -m_maxAngle, m_maxAngle);
+
+        float cameraAngle = m_camera.transform.eulerAngles.z;
+        if (cameraAngle >= 180)
+        {
+            cameraAngle -= 360;
+        }
+        float smooth = Mathf.Lerp(cameraAngle, clamped - angle, m_cameraAngleSmoothSpeed * Time.deltaTime);
+        m_camera.transform.eulerAngles = new Vector3(0f, 0f, smooth);
+        Debug.Log("a=" + angle + ", c=" + clamped + ", d=" + (clamped - angle) + ", z=" + cameraAngle + ", dt=" + Time.deltaTime);
+
         // Clamped rotation
-        down = Quaternion.Euler(0, 0, angle) * Vector3.down;
+        down = Quaternion.Euler(0, 0, clamped) * Vector3.down;
 
         //debug draw
         Debug.DrawLine(transform.position, transform.position+down, Color.red);
