@@ -8,7 +8,7 @@ public class CameraFollow : MonoBehaviour
     public Transform target;
 
     // speed between 0 - no camera movement and 1 - follow immediately
-    public float smoothSpeed = 0.1f;
+    public float smoothSpeed = 10f;
 
     // desired offset between camera and target
     public Vector3 offset;
@@ -19,6 +19,6 @@ public class CameraFollow : MonoBehaviour
         Vector3 desiredPostion = target.position + offset;
 
         // move towards the desired position using linear interpolation (lerp)
-        transform.position = Vector3.Lerp(transform.position, desiredPostion, smoothSpeed);
+        transform.position = Vector3.Lerp(transform.position, desiredPostion, smoothSpeed * Time.deltaTime);
     }
 }
