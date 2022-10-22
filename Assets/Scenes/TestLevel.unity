@@ -486,7 +486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1161451344}
-  smoothSpeed: 0.1
+  smoothSpeed: 10
   offset: {x: 0, y: 0, z: -10}
 --- !u!1 &1161451339
 GameObject:
@@ -624,6 +624,8 @@ MonoBehaviour:
   gun: {fileID: 0}
   rb: {fileID: 0}
   m_maxAngle: 45
+  m_camera: {fileID: 635704049}
+  m_cameraAngleSmoothSpeed: 10
 --- !u!1 &1183583546
 GameObject:
   m_ObjectHideFlags: 0
