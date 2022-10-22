@@ -389,6 +389,7 @@ MonoBehaviour:
   m_damage: 0
   m_bulletLifeTime: 0
   m_rb: {fileID: 1161451341}
+  m_bullet: {fileID: 190583551888235754, guid: 6dc8ffd3281c25a418245789466e242f, type: 3}
 --- !u!1 &635704049
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,6 +16,9 @@ public class Gun : MonoBehaviour
     [SerializeField]
     Rigidbody2D m_rb;
 
+    [SerializeField]
+    GameObject m_bullet;
+
     int gunType = 0;
     void GunType()
     {
@@ -45,7 +48,13 @@ public class Gun : MonoBehaviour
             if (touch.phase == TouchPhase.Began)
             {
                 Vector3 position = Camera.main.ScreenToWorldPoint(touch.position);
-                Fire(position);
+                position.z = 0f;
+
+                if (transform.position != position)
+                {
+                    Fire(position);
+                }
+                //else can't figure out the direction
             }
         }    
     }
@@ -53,6 +62,10 @@ public class Gun : MonoBehaviour
     private void Fire(Vector3 target)
     {
         Debug.DrawLine(transform.position, target, Color.white, 1.0f);
+
+        GameObject bullet = GameObject.Instantiate(m_bullet);
+        bullet.transform.position = transform.position;
+        bullet.transform.rotation = Quaternion.FromToRotation(Vector3.right, target - transform.position);
 
         Vector3 recoil = (transform.position - target).normalized * m_recoil;
         //Debug.DrawRay(transform.position, recoil, Color.yellow, 1.0f);
