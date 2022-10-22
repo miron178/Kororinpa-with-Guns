@@ -622,7 +622,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxVelocity: 0
-  gun: {fileID: 0}
   rb: {fileID: 0}
   m_maxAngle: 45
   m_camera: {fileID: 635704049}

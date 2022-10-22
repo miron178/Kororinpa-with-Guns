@@ -8,9 +8,6 @@ public class Slide : MonoBehaviour
     float maxVelocity = 0f;
 
     [SerializeField]
-    private GameObject gun = null;
-
-    [SerializeField]
     Rigidbody2D rb;
 
     [SerializeField]
@@ -35,10 +32,6 @@ public class Slide : MonoBehaviour
         if (maxVelocity <= 0)
         {
             Debug.LogError("need MaxSpeed <= 0");
-        }
-        if (gun = null)
-        {
-            Debug.LogWarning("Remember to add gun");
         }
     }
 
