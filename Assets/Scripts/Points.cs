@@ -13,6 +13,11 @@ public class Points : MonoBehaviour
         score = 0;
     }
 
+    public void TargetHit(Target target)
+    {
+        m_score++;
+    }
+
     void OnGUI()
     {
         GUILayout.Label("Score: " + score);
