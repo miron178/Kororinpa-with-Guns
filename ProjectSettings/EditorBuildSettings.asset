@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TestLevel.unity
+    path: Assets/Scenes/Roll.unity
     guid: 975724492a83d5942bac0a95e3fea2f1
   - enabled: 1
     path: Assets/Scenes/gyro.unity
